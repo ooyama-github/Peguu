@@ -9,51 +9,51 @@
           </div>
           <div class="ml-3"><%= f.text_field :title, autofocus: true, placeholder: "タイトル", class: "form-control" %></div>
         </div>
-        
+
         <div class="input-group mb-3 mt-4">
           <div class="input-group-prepend">
             <span class="input-group-text rounded" aria-hidden="true"><i class="fas fa-map-marker-alt"></i></span>
           </div>
           <div class="ml-3"><%= f.select :tag_id, Tag.pluck(:prefecture, :id), class: "form-control" %></div>
         </div>
-        
+
         <div class="input-group mb-3 mt-4">
           <div class="input-group-prepend">
             <span class="input-group-text rounded" aria-hidden="true"><i class="fas fa-map-pin"></i></span>
           </div>
           <div class="ml-3"><%= f.text_field :campsite_name, placeholder: "キャンプサイト名・施設名", class: "form-control" %></div>
         </div>
-        
-        <!--イーナム追加後にコメントアウト解除-->
-        <!--<div class="input-group">-->
-        <!--  <div class="input-group-text rounded"><i class="fas fa-map-signs"></i></div>-->
-        <!--  <div class="ml-3">-->
-        <!--    <div>-->
-              <%#= f.radio_button :facility, Campsite.facilities.key(0) %>
-              <%#= f.label :facility, Campsite.facilities_i18n[:オートキャンプ], value: Campsite.facilities.key(0) %>
-            <!--</div>-->
-            <!--<div>-->
-              <%#= f.radio_button :facility, Campsite.facilities.key(1) %>
-              <%#= f.label :facility, Campsite.facilities_i18n[:フリーサイト], value: Campsite.facilities.key(1) %>
-            <!--</div>-->
-            <!--<div>-->
-              <%#= f.radio_button :facility, Campsite.facilities.key(2) %>
-              <%#= f.label :facility, Campsite.facilities_i18n[:both], value: Campsite.facilities.key(2) %>
-        <!--    </div>-->
-        <!--  </div>-->
-        <!--</div>-->
-        
+
+        <!--enumでキャンプ場の種類選択実装-->
+        <div class="input-group">
+          <div class="input-group-text rounded"><i class="fas fa-caravan"></i></div>
+          <div class="ml-3">
+            <div>
+              <%= f.radio_button :facility, Campsite.facilities.key(0) %>
+              <%= f.label :facility, Campsite.facilities_i18n[:auto_camp], value: Campsite.facilities.key(0) %>
+            </div>
+            <div>
+              <%= f.radio_button :facility, Campsite.facilities.key(1) %>
+              <%= f.label :facility, Campsite.facilities_i18n[:free_site], value: Campsite.facilities.key(1) %>
+            </div>
+            <div>
+              <%= f.radio_button :facility, Campsite.facilities.key(2) %>
+              <%= f.label :facility, Campsite.facilities_i18n[:both], value: Campsite.facilities.key(2) %>
+            </div>
+          </div>
+        </div>
+
         <div class="input-group mb-3 mt-4">
           <div class="input-group-prepend">
             <span class="input-group-text rounded" aria-hidden="true"><i class="fas fa-camera-retro"></i></span>
           </div>
           <div class="ml-3"><%= f.file_field :campsite_image, accept: 'image/*' %></div>
         </div>
-        
+
         <div class="ml-3">
           <%= f.text_area :opinion, class: "form-control", row: "4", placeholder: "コメントはこちら" %>
         </div>
-        
+
         <!--送信ボタン-->
         <hr>
         <%= f.submit '送信', class: "btn btn-block btn-outline-info mt-4" %>
