@@ -1,3 +1,28 @@
 // ブートストラップとフォントオーサム導入
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+
+// ヘッダーの色を指定
+header {
+  background-color: #98FB98;
+}
+
+// フッターの色指定
+footer {
+  background-color: #98FB98;
+}
+
+.navbar-brand {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 25px;
+}

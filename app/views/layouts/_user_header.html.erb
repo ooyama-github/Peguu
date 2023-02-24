@@ -1,0 +1,31 @@
+<!--ユーザーがサインインしていたら-->
+<% if user_signed_in? %>
+  <li class="nav-item mr-4 text-nowrap">
+    <%= link_to 'Mypage', user_path(current_user), class: "btn bg-light rounded-pill" %>
+  </li>
+  <li class="nav-item1 mr-4 text-nowrap">
+    <%= link_to 'Items', post_items_path, class: "btn rounded-pill" %>
+  </li>
+  <li class="nav-item2 mr-4 text-nowrap">
+    <%= link_to 'Campsite info', campsites_path, class: "btn rounded-pill" %>
+  </li>
+  <li class="nav-item mr-4 text-nowrap">
+    <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "btn bg-light rounded-pill" %>
+  </li>
+<% else %>
+  <li class="nav-item mr-3 text-nowrap">
+    <%= link_to 'About', about_path, class: "btn bg-light rounded-pill" %>
+  </li>
+  <li class="nav-item2 mr-3 text-nowrap">
+    <%= link_to 'Campsite info', campsites_path, class: "btn rounded-pill" %>
+  </li>
+  <li class="nav-item1 mr-3 text-nowrap">
+    <%= link_to 'Log in', new_user_session_path, class: "btn rounded-pill" %>
+  </li>
+  <li class="nav-item3 mr-3 text-nowrap">
+    <%= link_to 'Sign up', new_user_registration_path, class: "btn rounded-pill" %>
+  </li>
+  <li clss="nav-item mr-3 text-nowrap">
+    <%= link_to 'Admin', new_admin_session_path, class: "btn bg-light rounded-pill" %>
+  </li>
+<% end %>

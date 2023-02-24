@@ -1,0 +1,27 @@
+<% if admin_signed_in? %>
+  <li class="nav-item mr-3 text-nowrap">
+    <%= link_to 'Home', admin_path, class: "btn bg-light rounded-pill" %>
+  </li>
+  <li class="nav-item4 mr-3 text-nowrap">
+    <%= link_to 'Users', admin_users_path, class: "btn rounded-pill" %>
+  </li>
+  <li class="nav-item1 mr-3 text-nowrap">
+    <%= link_to 'Items', admin_post_items_path, class: "btn rounded-pill" %>
+  </li>
+  <li class="nav-item2 mr-3 text-nowrap">
+    <%= link_to 'Campsite info', admin_campsites_path, class: "btn rounded-pill" %>
+  </li>
+  <li class="nav-item mr-3 text-nowrap">
+    <%= link_to 'Log out', destroy_admin_session_path, method: :delete, class: "btn bg-light rounded-pill" %>
+  </li>
+<% else %>
+  <li class="nav-item mr-3 text-nowrap">
+    <%= link_to 'Log in', new_admin_session_path, class: "btn bg-light rounded-pill" %>
+  </li>
+  <li class="nav-item6 mr-3 text-nowrap">
+    <%= link_to 'User Log in', new_user_session_path, class: "btn rounded-pill" %>
+  </li>
+  <li class="nav-item7 mr-3 text-nowrap">
+    <%= link_to 'User Sign up', new_user_registration_path, class: "btn rounded-pill" %>
+  </li>
+<% end %>
