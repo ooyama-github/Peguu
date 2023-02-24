@@ -1,0 +1,20 @@
+<div class='container my-5'>
+  <div class='h5 pt-4 my-5 text-center'>
+    <h1>本当に退会しますか？</h1>
+
+    <p>
+      退会すると、会員登録情報や<br>
+      再度会員になるには、新規登録のお手続きが必要になります。<br>
+      退会する場合は、「退会する」をクリックしてください。
+    </p>
+
+    <p>
+      <%= link_to user_withdraw_path(current_user), method: :patch,  class:"btn btn-danger", data: { confirm: "本当に退会しますか？" } do %>
+        <i class="fas fa-user-slash"></i>キャンセル
+      <% end %>
+      <%= link_to user_path(current_user), class:"btn btn-secondary" do %>
+        <i class="fas fa-user"></i>しない
+      <% end %>
+    </p>
+  </div>
+</div>
