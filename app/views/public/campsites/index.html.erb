@@ -1,0 +1,8 @@
+<div class="container mt-5">
+  <!--フラッシュメッセージ-->
+  <%= flash[:alert] %>
+  <!--部分テンプレート-->
+  <%= render 'index', campsites: @campsites, tag: @tag %>
+  <!--ページネーション-->
+  <%= paginate @campsites %>
+</div>

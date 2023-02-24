@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="mb-4 ml-5">
+    <% if params[:tag_id] %>
+      <h2 class="campsite-title">"<%= tag.prefecture %>" の検索結果</h2>
+    <% else %>
+      <h2 class="campsite-title">キャンプサイト一覧</h2>
+    <% end %>
+  </div>
+</div>
+
+<!--会員ログイン時-->
+<% if user_signed_in? %>
+<!--ここにサーチ機能を付ける-->
+<!--未実装-->
+
+<div class="text-right pr-5">
+  <%= link_to new_campsite_path, class: "btn btn-info" do %>
+    <i class="fas fa-plus-circle"></i> 新規登録
+  <% end %>
+</div>
+<% end %>
+
+<div class="row row-cols-1 row-cols-md-3 g-4 w-100">
+  <% if campsites.first %>
+    <% campsites.each do |campsite| %>
+      <% if campsite.user.is_deleted == false %>
+        <div class="col mb-5">
+          <div class="card h-100 mt-4 shadow-sm">
+            <%= image_tag campsite.get_campsite_image , class: "card-img-top img-fluid", style: "height:200px; object-fit: cover;" %>
+              <div class="card-body">
+                <h5 class="card-title text-truncate"><%= campsite.title %></h5>
+                <p class="card-text">
+                  <i class="fas fa-map-marker-alt"></i> <%= campsite.tag.prefecture %>
+                </p>
+                <p class="card-text text-truncate"><%= campsite.opinion %></p>
+                <p class="card-text">
+                  <small class="text-muted">
+                    <%= image_tag campsite.user.get_profile_image, size: '40x40', class: "rounded-circle" %> @
+                    <%= campsite.user.name %>
+                  </small>
+                </p>
+                <p class="card-text">
+                  <small class="text-muted"><%= campsite.created_at.strftime('%Y/%m/%d') %></small>
+                  <span class="float-right">
+
+                    <!--管理者ログイン時-->
+                    <% if admin_signed_in? %>
+                      <%= link_to '詳細を見る', admin_campsite_path(campsite.id), class: "btn btn-sm btn-outline-dark rounded-pill" %>
+                    <% else %>
+                      <%= link_to '詳細を見る', campsite_path(campsite.id), class: "btn btn-sm btn-outline-dark rounded-pill" %>
+                    <% end %>
+                  </span>
+                </p>
+              </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% else %>
+    <h4 class="text-center">まだ投稿されていません</h4>
+  <% end %>
+</div>
