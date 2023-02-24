@@ -1,1 +1,43 @@
-<h1>トップページ</h1>
+<!--最近の投稿３件を表示する-->
+<div class="container mt-5">
+  <h4 class="top"><i class="fas fa-campground"></i> 最近の投稿</h4>
+
+  <div class="row row-cols-md-3 g-4 w-100">
+    <% @new_3_campsites.each do |walk| %>
+      <% if campsite.user.is_deleted == false %>
+        <div class="col-mb-3 col-sm-1 mb-5">
+          <div class="card-img h-100 mt-4 shadow-sm">
+            <%= image_tag campsite.get_campsite_image, class: "card-img-top img-fluid", style: "height:200px" %>
+              <div class="card-body">
+                <h5 class="card-title"><%= campsite.title %></h5>
+                <p class="card-text text-truncate"><%= campsite.opinion %></p>
+                <p class="card-text"><%= campsite.created_at.strftime('%Y/%m/%d') %></p>
+              </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
+  <div class="row my-5 pr-3">
+    <%= link_to '投稿一覧へ', campsites_path, class: "ml-auto btn btn-outline-dark rounded-pill" %>
+  </div>
+</div>
+
+
+<!--サイトの紹介文-->
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-5 col-sm-10">
+      <h4 class="top-title my-3"><i class="fas fa-caravan"></i> Peguu(ペグー) へようこそ！</h4>
+        <h6 class="pt-md-3">キャンプが好きなあなたのためのウェブサイトです。</h6>
+        <p class="mt-md-4">
+          キャンプで使っている道具を紹介したり、キャンプサイトの投稿ができます！
+          みんなで共有して、良いキャンプサイトやアイテムを見つけてみましょう！
+        </p>
+        <p class="mt-md-3">
+          あなたにとって、より良いキャンプライフを…
+        </p>
+    </div>
+  </div>
+</div>
