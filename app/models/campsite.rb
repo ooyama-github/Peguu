@@ -15,7 +15,7 @@ class Campsite < ApplicationRecord
   end
 
 
-  # enym追加
+  # enum追加
   enum facility: { auto_camp: 0, free_site: 1, both: 2 }
 
 
