@@ -1,0 +1,31 @@
+<div class="row no-gutters">
+  <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-3 bg-light" >
+    <h5 class="text-center mt-5">投稿</h5>
+      <div class="form-body p-4">
+        
+        <!--投稿フォーム-->
+        <%= form_with model: post_item do |f| %>
+          <div class="input-group mb-3 mt-4">
+            <div class="input-group-prepend">
+              <span class="input-group-text rounded" aria-hidden="true"><i class="fas fa-camera-retro"></i></i></span>
+            </div>
+            
+            <!--画像投稿の部分-->
+            <div class="ml-3"><%= f.file_field :post_item_image, accept: 'image/*' %></div>
+          </div>
+          <div class="input-group mb-4 mt-4">
+            <div class="input-group-prepend">
+              <span class="input-group-text rounded" aria-hidden="true"><i class="far fa-comment"></i></span>
+            </div>
+            
+            <!--紹介文の部分-->
+            <div class="ml-3"><%= f.text_area :body, autofocus: true, row: "5", placeholder: "内容を入力", class: "form-control" %></div>
+          </div>
+          
+          <!--ボタンの部分-->
+          <hr>
+          <%= f.submit '送信', class: "btn btn-block btn-outline-info mt-4" %>
+        <% end %>
+      </div>
+  </div>
+</div>

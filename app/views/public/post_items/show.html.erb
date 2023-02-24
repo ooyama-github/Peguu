@@ -1,0 +1,58 @@
+<div class="container mt-5">
+  <!--フラッシュメッセージ-->
+  <%= flash[:notice] %>
+  <% if @post_item.user.is_deleted == false %>
+    <div class="doggies-detail row">
+      <div class="col-md-4 col-sm-10 mx-auto my-auto">
+        <div class="p-4"><%= image_tag @post_item.get_post_item_image, size: '350x250', class: "img-fluid" %></div>
+      </div>
+      <div class="col-md-6 col-sm-10 offset-md-1 pt-5">
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <%= link_to user_path(@post_item.user.id) do %>
+                <!--プロフィール画像、会員氏名-->
+                  <%= image_tag @post_item.user.get_profile_image, size: '40x40', class: "rounded-circle" %>
+                  @ <%= @post_item.user.name %>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <!--タグ-->
+              <td><%= safe_join(@post_item.body.split("\n"),tag(:br)) %></td>
+            </tr>
+          </tbody>
+        </table>
+          
+        <div class="pt-3">
+          <!--日付-->
+          <small><%= @post_item.created_at.strftime('%Y/%m/%d') %></small>
+        </div>
+        
+        
+        <!--ここにいいねをいれる-->
+        <!--まだ実装できていない-->
+        
+        
+        <div class="text-right">
+          <!--自分の投稿の場合、編集可能にする-->
+          <% if @post_item.user == current_user %>
+            <span class="pr-3 pb-3">
+              <%= link_to edit_post_item_path(@post_item), class: "btn btn-info" do %>
+                編集 <i class="fas fa-edit"></i>
+              <% end %>
+            </span>
+            <span class="pr-3 pb-3">
+              <%= link_to post_item_path(@post_item), method: :delete, data: { confirm: '本当に削除しますか？' } , class: "btn btn-danger" do %>
+                削除 <i class="fas fa-trash-alt"></i>
+              <% end %>
+            </span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <!--  ここにコメントを入れたいです。-->
+  <!--  まだ実装できていません。-->
+  <% end %>
+</div>

@@ -1,0 +1,41 @@
+<div class="row row-cols-1 row-cols-md-3 g-4 w-100">
+  <!--全アイテムを表示-->
+  <% post_items.each do |post_item| %>
+    <% if post_item.user.is_deleted == false %>
+      <div class="col mb-5">
+        <div class="card h-100 mt-4 shadow-sm">
+          
+          <!--アイテム画像部分-->
+          <%= image_tag post_item.get_post_item_image, class: "card-img-top img-fluid", style: "height:200px" %>
+          <div class="card-body">
+            <p class="card-text">
+              
+              <!--プロフィール写真、ユーザーネーム部分-->
+              <%= image_tag post_item.user.get_profile_image, size: '40x40', class: "rounded-circle" %> @
+              <%= post_item.user.name %>
+            </p>
+            
+            <!--アイテム説明文部分-->
+            <p class="card-text"><%= post_item.body %></p>
+            <p class="card-text">
+              <small class="text-muted">
+                
+                <!--投稿した日付-->
+                <%= post_item.created_at.strftime('%Y/%m/%d') %>
+              </small>
+              <span class="float-right">
+                
+                <!--管理者がログインしていた場合-->
+                <% if admin_signed_in? %>
+                  <%= link_to '詳細を見る', admin_post_item_path(post_item.id), class: "btn btn-sm btn-outline-dark rounded-pill" %>
+                <% else %>
+                  <%= link_to '詳細を見る', post_item_path(post_item.id), class: "btn btn-sm btn-outline-dark rounded-pill" %>
+                <% end %>
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
