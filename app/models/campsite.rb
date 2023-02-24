@@ -30,6 +30,5 @@ class Campsite < ApplicationRecord
   validates :title, length: { minimum: 1, maximum: 20 }
   validates :opinion, length: { minimum: 1, maximum: 300 }
   validates :facility, presence: true
-  validates :size, presence: true
 
 end
