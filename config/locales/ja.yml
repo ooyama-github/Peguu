@@ -1,0 +1,7 @@
+ja:
+  enums:
+    campsite:
+      facility:
+        auto_camp: "オートキャンプ場"
+        free_site: "フリーサイトキャンプ場"
+        both: "オートキャンプ&フリーサイト"
