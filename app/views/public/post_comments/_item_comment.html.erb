@@ -1,0 +1,48 @@
+<div class="row no-gutters">
+  <div class="col-md-4 col-sm-10">
+    <div class="form-body p-4">
+      <%= form_with model: [post_item, post_comment], local: false do |f| %>
+        <div class="input-group mb-3 mt-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text rounded" aria-hidden="true"><i class="fas fa-comments"></i></span>
+          </div>
+          <div class="ml-3"><%= f.text_area :item_comment, placeholder: 'コメントを書く', class: "comment-area form-control" %></div>
+        </div>
+        <hr>
+        <div><%= f.submit 'コメント', row: "4", class: "btn btn-block btn-outline-success mt-7" %></div>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="col-md-7 col-sm-10 offset-1">
+    <% post_item.post_comments.each do |post_comment| %>
+      <div class="doggies-comment card w-75 mb-4">
+        <div class="card-body">
+          <p class="card-text">
+            <%= link_to user_path(post_comment.user.id) do %>
+              <%= image_tag post_comment.user.get_profile_image, size: '40x40', class: "rounded-circle" %>@ 
+              <%= post_comment.user.name %>
+            <% end %>
+          </p>
+          <p class="card-text text-wrap"><%= post_comment.item_comment %></p>
+            
+          <p class="card-text">
+            <span class="mr-3">
+              <small class="text-muted">
+                <%= post_comment.created_at.strftime('%Y/%m/%d') %>
+              </small>
+            </span>
+            <span>
+              <% if post_comment.user == current_user %>
+                <%= link_to post_item_post_comment_path(post_comment.post_item, post_comment), method: :delete, data: { confirm: '本当に削除しますか？' }, remote: true, class: "btn btn-sm btn-outline-danger" do %>
+                  削除 <i class="fas fa-trash-alt"></i>
+                <% end %>
+              <% end %>
+            </span>
+          </p>
+        </div>
+      </div>
+      <hr>
+    <% end %>
+  </div>
+</div>

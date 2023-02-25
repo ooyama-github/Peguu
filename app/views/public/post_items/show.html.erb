@@ -53,7 +53,20 @@
         </div>
       </div>
     </div>
-  <!--  ここにコメントを入れたいです。-->
-  <!--  まだ実装できていません。-->
+    
+    
+    <!--コメント機能-->
+    <div class="comment-counter">
+      <%= render 'public/post_comments/counter', post_item: @post_item %>
+    </div>
+    <div class="post_comments">
+      <%= render 'public/post_comments/item_comment', post_item: @post_item, post_comment: @post_comment %>
+    </div>
+      
+    <div class="text-center">
+      <i class="fas fa-th-list"></i><%= link_to '一覧へ戻る', post_items_path, class: "btn btn-default-v3" %>
+    </div>
+  <% else %>
+    <div class="text-center">退会したユーザーのため表示できません</div>
   <% end %>
 </div>
