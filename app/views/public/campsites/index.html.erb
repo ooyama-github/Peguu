@@ -2,7 +2,7 @@
   <!--フラッシュメッセージ-->
   <%= flash[:alert] %>
   <!--部分テンプレート-->
-  <%= render 'index', campsites: @campsites, tag: @tag %>
+  <%= render 'index', campsites: @campsites %>
   <!--ページネーション-->
   <%= paginate @campsites %>
 </div>
