@@ -1,0 +1,14 @@
+<% if post_item.favorited_by?(current_user) %>
+  <!--非同期実装-->
+  <p>
+    <%= link_to post_item_favorites_path(post_item), method: :delete, remote: true do %>
+      <i class="fas fa-heart"></i> いいね（<%= post_item.favorites.count %>件）
+    <% end %>
+  </p>
+<% else %>
+  <p>
+    <%= link_to post_item_favorites_path(post_item), method: :post, remote: true do %>
+      <i class="far fa-heart"></i> いいね（<%= post_item.favorites.count %>件）
+    <% end %>
+  </p>
+<% end %>
