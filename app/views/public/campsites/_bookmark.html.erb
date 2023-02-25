@@ -1,0 +1,13 @@
+<% if campsite.bookmarked_by?(current_user) %>
+  <p>
+    <%= link_to campsite_bookmarks_path(walk), method: :delete, remote: true do %>
+      <i class="fas fa-book"></i> ブックマーク中（<%= campsite.bookmarks.count %>件）
+    <% end %>
+  </p>
+<% else %>
+  <p>
+    <%= link_to campsite_bookmarks_path(campsite), method: :post, remote: true do %>
+      <i class="fas fa-book"></i> ブックマークする（<%= campsite.bookmarks.count %>件）
+    <% end %>
+  </p>
+<% end %>
