@@ -7,9 +7,9 @@ class CreateCampsites < ActiveRecord::Migration[6.1]
     t.text :opinion, null: false
     t.string :campsite_name
     t.integer :facility, null: false, default: 0
-    t.integer :tag_id, null: false
+    t.integer :prefecture_code, null: false, default: 1
 
-      t.timestamps
+    t.timestamps
     end
   end
 end

@@ -23,7 +23,6 @@ class Campsite < ApplicationRecord
   belongs_to :user
   has_many :campsite_comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
-  belongs_to :tag
 
 
   # バリデーション
