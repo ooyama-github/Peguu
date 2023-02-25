@@ -21,10 +21,9 @@ class Public::CampsitesController < ApplicationController
 
 
   def index
-    @campsites = Campsite.page(params[:page]).per(18).reverse_order
-    if params[:tag_id]
-      @tag = Tag.find(params[:tag_id])
-      @campsites = @campsites.where(tag_id: params[:tag_id])
+    @campsites = Campsite.page(params[:page]).per(18).order(created_at: :desc)   #reverse_order
+    if params[:prefecture_code].present?
+      @campsites = @campsites.where(prefecture_code: params[:prefecture_code])
     end
   end
 

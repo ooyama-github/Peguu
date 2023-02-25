@@ -10,8 +10,25 @@
 
 <!--会員ログイン時-->
 <% if user_signed_in? %>
-<!--ここにサーチ機能を付ける-->
-<!--未実装-->
+<!--サーチ機能-->
+<div class="row my-3 ml-5">
+  <%= form_with url: campsites_path, method: :get do |f| %>
+  <!--jp_prefectureで都道府県の検索結果-->
+    <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, {include_blank: '選択してください'} %>
+    <%= f.submit '検索', class: "btn btn-sm btn-outline-info" %>
+  <% end %>
+  
+  <div class="pl-5">
+    <%= form_with url: search_path, locul: true, method: :get, class: "d-flex border border-secondary rounded" do |f| %>
+    <!--キーワードの検索結果-->
+      <%= f.text_field :word, class: "form-control form-control-sm", placeholder: "キーワードを入力", style: "border: none;" %>
+      <%= button_tag class: "", type: "submit", style: "border: none;" do %>
+        <i class="fas fa-search"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
 
 <div class="text-right pr-5">
   <%= link_to new_campsite_path, class: "btn btn-info" do %>
