@@ -1,0 +1,2 @@
+$(".comment-counter").html("<%= j(render 'public/campsite_comments/counter', campsite: @campsite) %>");
+$(".campsite-comments").html("<%= j(render 'public/campsite_comments/campsite_comment', campsite: @campsite, campsite_comment: @campsite_comment) %>");

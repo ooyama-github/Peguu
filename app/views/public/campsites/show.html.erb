@@ -65,18 +65,18 @@
       </div>
     </div>
 
-    <!--コメント/投稿・一覧-->
-    <!--<div class="comment-counter">-->
-      <%#= render 'public/campsite_comments/counter', campsite: @campsite %>
-    <!--</div>-->
-    <!--<div class="campsite-comments">-->
-      <%#= render 'public/campsite_comments/campsite_comment', campsite: @campsite, campsite_comment: @campsite_comment %>
-    <!--</div>-->
+    <!--コメント機能-->
+    <div class="comment-counter">
+      <%= render 'public/campsite_comments/counter', campsite: @campsite %>
+    </div>
+    <div class="campsite-comments">
+      <%= render 'public/campsite_comments/campsite_comment', campsite: @campsite, campsite_comment: @campsite_comment %>
+    </div>
 
-    <!--<div class="text-center">-->
-      <!--<i class="fas fa-th-list"></i><%#= link_to '一覧に戻る', campsites_path, class: "btn btn-default-v3" %>-->
-    <!--</div>-->
-  <%# else %>
-    <!--<div class="text-center">退会したユーザーのため表示できません</div>-->
+    <div class="text-center">
+      <i class="fas fa-th-list"></i><%= link_to '一覧に戻る', campsites_path, class: "btn btn-default-v3" %>
+    </div>
+  <% else %>
+    <div class="text-center">退会したユーザーのため表示できません</div>
   <% end %>
 </div>
