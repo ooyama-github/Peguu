@@ -1,0 +1,10 @@
+<table>
+  <% users.each do |user| %>
+    <tr>
+      <td class="py-1"><%= image_tag user.get_profile_image, size: '40x40', class: "rounded-circle" %></td>
+      <td class="pr-3"><%= link_to user.name, user_path(user) %></td>
+      <td id="follow_btn_<%= user.id %>", class="px-3"><%= render 'public/relationships/btn', user: user %></td>
+      <td class="px-3"><%= link_to '詳細', user_path(user), class: "btn btn-outline-secondary btn-sm" %></td>
+    </tr>
+  <% end %>
+</table>

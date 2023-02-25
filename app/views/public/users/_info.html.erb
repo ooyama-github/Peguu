@@ -9,9 +9,9 @@
       <div class="image"><%= image_tag user.get_profile_image, size: '200x190', class: "d-block mx-auto" %></div>
       <p class="card-text text-center mt-3">@ <%= user.name %></p>
       <p class="card-text text-center"><%= user.introduction %></p>
-      <p id="followings_count_<%= @user.id %>", class="card-text text-center"><%#= render 'public/relationships/followings_counter', user: user %></p>
-      <p id="followers_count_<%= @user.id %>", class="card-text text-center"><%#= render 'public/relationships/followers_counter', user: user %></p>
-      <p id="follow_btn_<%= user.id %>", class="card-text text-center"><%#= render 'public/relationships/btn', user: user %></p>
+      <p id="followings_count_<%= @user.id %>", class="card-text text-center"><%= render 'public/relationships/followings_counter', user: user %></p>
+      <p id="followers_count_<%= @user.id %>", class="card-text text-center"><%= render 'public/relationships/followers_counter', user: user %></p>
+      <p id="follow_btn_<%= user.id %>", class="card-text text-center"><%= render 'public/relationships/btn', user: user %></p>
       
       <!--ゲストユーザーを弾く設定-->
       <% if current_user == user && user.name != "ゲストユーザー" %>
