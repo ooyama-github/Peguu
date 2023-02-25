@@ -14,10 +14,10 @@
 <div class="row my-3 ml-5">
   <%= form_with url: campsites_path, method: :get do |f| %>
   <!--jp_prefectureで都道府県の検索結果-->
-    <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, {include_blank: '選択してください'} %>
+    <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, {include_blank: '都道府県を選択'} %>
     <%= f.submit '検索', class: "btn btn-sm btn-outline-info" %>
   <% end %>
-  
+
   <div class="pl-5">
     <%= form_with url: search_path, locul: true, method: :get, class: "d-flex border border-secondary rounded" do |f| %>
     <!--キーワードの検索結果-->
@@ -47,7 +47,7 @@
               <div class="card-body">
                 <h5 class="card-title text-truncate"><%= campsite.title %></h5>
                 <p class="card-text">
-                  
+
                   <!--数字から都道府県の名前をだす記述-->
                   <i class="fas fa-map-marker-alt"></i> <%= JpPrefecture::Prefecture.find(campsite.prefecture_code).name %>
                 </p>
