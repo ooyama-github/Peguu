@@ -5,7 +5,6 @@ class Public::CampsitesController < ApplicationController
 
   def new
     @campsite = Campsite.new
-    @tags = Tag.all
   end
 
 
@@ -63,7 +62,7 @@ class Public::CampsitesController < ApplicationController
   private
 
   def campsite_params
-    params.require(:campsite).permit(:title, :opinion, :campsite_name, :facility, :campsite_image, :tag_id)
+    params.require(:campsite).permit(:title, :opinion, :campsite_name, :facility, :campsite_image, :prefecture_code)
   end
 
   def ensure_correct_user
