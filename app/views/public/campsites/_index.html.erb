@@ -30,9 +30,9 @@
               <div class="card-body">
                 <h5 class="card-title text-truncate"><%= campsite.title %></h5>
                 <p class="card-text">
+                  
+                  <!--数字から都道府県の名前をだす記述-->
                   <i class="fas fa-map-marker-alt"></i> <%= JpPrefecture::Prefecture.find(campsite.prefecture_code).name %>
-                  <!--数字から都道府県の名前をだす-->
-                   <%#= campsite.prefecture_code %>
                 </p>
                 <p class="card-text text-truncate"><%= campsite.opinion %></p>
                 <p class="card-text">

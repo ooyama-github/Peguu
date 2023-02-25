@@ -3,7 +3,7 @@
   <h4 class="top"><i class="fas fa-campground"></i> 最近の投稿</h4>
 
   <div class="row row-cols-md-3 g-4 w-100">
-    <% @new_3_campsites.each do |walk| %>
+    <% @new_3_campsites.each do |campsite| %>
       <% if campsite.user.is_deleted == false %>
         <div class="col-mb-3 col-sm-1 mb-5">
           <div class="card-img h-100 mt-4 shadow-sm">

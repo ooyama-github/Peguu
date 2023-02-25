@@ -10,14 +10,13 @@
           <div class="ml-3"><%= f.text_field :title, autofocus: true, placeholder: "タイトル", class: "form-control" %></div>
         </div>
 
-        <!--タグ-->
+        <!--gem 'jp_prefecture'でタグ実装-->
         <div class="input-group mb-3 mt-4">
           <div class="input-group-prepend">
             <span class="input-group-text rounded" aria-hidden="true"><i class="fas fa-map-marker-alt"></i></span>
           </div>
+          <!--JpPrefecture::Prefecture.allは選択肢をとってくるという意味、codeで数字、nameで名前をとってくる記述-->
           <div class="ml-3"><%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, {}, {class: "form-control"} %></div>
-          <%#= f.select :tag_id, Tag.pluck(:prefecture, :id), class: "form-control" %>
-          <!--JpPrefecture::Prefecture.allは選択肢をとってくるという意味-->
         </div>
 
         <div class="input-group mb-3 mt-4">
