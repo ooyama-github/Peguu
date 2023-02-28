@@ -1,0 +1,5 @@
+<div class="container mt-5">
+  <%= flash[:alert] %>
+  <%= render 'public/campsites/index', campsites: @campsites %>
+  <%= paginate @campsites %>
+</div>

@@ -1,0 +1,22 @@
+<div class="row no-gutters">
+  <div class="col-md-7 col-sm-10">
+    <% campsite.campsite_comments.each do |campsite_comment| %>
+      <div class="campsite-comment card w-75 mb-4">
+        <div class="card-body">
+          <p class="card-text">
+            <%= image_tag campsite_comment.user.get_profile_image, size: '30x30', class: "rounded-circle" %>@
+            <%= campsite_comment.user.name %>
+          </p>
+          <p class="card-text text-wrap"><%= campsite_comment.campsite_comment %></p>
+          <p class="card-text">
+            <small class="text-muted">
+              <%= campsite_comment.created_at.strftime('%Y/%m/%d') %>
+            </small>
+            <%= link_to '削除', admin_campsite_campsite_comment_path(campsite_comment.campsite, campsite_comment), method: :delete, data: { confirm: '本当に削除しますか？' }, remote: true, class: "btn btn-sm btn-outline-danger text-right" %>
+          </p>
+        </div>
+      </div>
+      <hr>
+    <% end %>
+  </div>
+</div>
