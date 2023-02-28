@@ -1,0 +1,39 @@
+<div class="container mt-5">
+  <%= flash[:alert] %>
+  <div class="row">
+    <div class="col-md-12 col-sm-10">
+      <div class="card w-75 mx-auto mb-3">
+        <div class="card-body">
+          <h5 class="card-title">User Patrol</h5>
+            <p class="card-text">
+              不適切なユーザーがいた場合、そのユーザーを利用停止にすることができます。<br>
+              編集画面で「利用中」・「利用停止」が選べます。
+            </p>
+            <p><%= link_to 'All Users', admin_users_path, class: "btn btn-info" %></p>
+        </div>
+      </div>
+      
+      <div class="card w-75 mx-auto my-3">
+        <div class="card-body">
+          <h5 class="card-title">Campsite Patrol</h5>
+            <p class="card-text">
+              不適切な情報やコメントがあれば管理人側から削除ができます。<br>
+              詳細画面から削除することができます。
+            </p>
+            <p><%= link_to 'All Campsites', admin_campsites_path, class: "btn btn-warning" %></p>
+        </div>
+      </div>
+      
+      <div class="card w-75 mx-auto my-3">
+        <div class="card-body">
+          <h5 class="card-title">Items Patrol</h5>
+            <p class="card-text">
+              不適切な投稿やコメントがあれば管理人側から削除ができます。<br>
+              詳細画面から削除することができます。
+            </p>
+            <p><%= link_to 'All Items', admin_post_items_path, class: "btn btn-danger" %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
