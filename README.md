@@ -1,24 +1,68 @@
-# README
+# Peguu
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+# サイト概要
 
-* Ruby version
+### キャンプ好きが集まれるアプリです。
 
-* System dependencies
+キャンプで使っている道具を紹介したり、キャンプサイトの投稿ができます！
+おすすめのキャンプサイトやキャンプ道具をシェアできるアプリです。
 
-* Configuration
 
-* Database creation
+ゲストログインボタンからゲストユーザーとしてログイン可能です。PC・スマホ対応。
 
-* Database initialization
 
-* How to run the test suite
+# テーマを選んだ理由
 
-* Services (job queues, cache servers, search engines, etc.)
+コロナウイルスが流行り、人との接触が少なく外で遊べるキャンプが流行しました。
+そこから、キャンプ好きが集まれるようなサイトができれば良いなという思いから、
+このアプリを作ることを決めました。
+キャンプ場だけでなく、キャンプ道具もシェアすることでみんなが使っている道具も知ることができます。
+より快適にキャンプ活動ができ、使いやすいサイトが欲しくてこのこのテーマにしました！
 
-* Deployment instructions
 
-* ...
+# ターゲットユーザ
+
+- これからキャンプを始めようとしている人
+- キャンプが好きな人
+
+
+# 主な利用シーン
+
+- いいキャンプ場を探している人
+- 仲間と共有しながら、会話などを楽しみたい人
+
+# 機能一覧
+
+- ユーザー登録機能
+
+  - メールアドレス
+  - パスワード
+
+- ログイン機能
+
+  - devise でログイン機能を実装
+  - ゲストログイン機能を実装
+
+- 管理者ページ
+
+  - ユーザー登録・編集・強制退会・復帰
+
+- 投稿ページ
+
+  - キャンプ場、キャンプ道具の投稿
+  - 編集機能
+  - 削除機能
+  - コメント機能
+  - 検索機能
+  - 絞り込み機能
+
+- PC・スマホ対応
+
+
+# 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
