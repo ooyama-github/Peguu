@@ -1,5 +1,6 @@
 # Peguu
 
+![サイト写真](/app/assets/images/readme.png)
 
 # サイト概要
 
