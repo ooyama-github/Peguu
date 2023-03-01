@@ -1,0 +1,10 @@
+<div class="container mt-5">
+  <%= flash[:alert] %>
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="items-title">All Items</h2>
+      <%= render 'public/post_items/index', post_items: @post_items %>
+      <%= paginate @post_items %>
+    </div>
+  </div>
+</div>
